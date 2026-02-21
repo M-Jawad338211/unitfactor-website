@@ -1,0 +1,57 @@
+# Copy the contents of this file to .htaccess inside public_html directory of your server
+
+# SGS XMLRPC Disable Service
+
+<Files xmlrpc.php>
+	order deny,allow
+	deny from all
+</Files>
+# SGS XMLRPC Disable Service END
+
+# --- NEXT.JS PORTFOLIO LOGIC ---
+
+RewriteEngine On
+RewriteBase /
+
+# 1. FORCE THE HOMEPAGE TO INDEX.HTML
+# This ensures that yourdomain.com/ loads Next.js index.html instead of index.php
+DirectoryIndex index.html index.php
+
+# 2. HANDLE FOLDER-BASED ROUTES (contacts, portfolio, etc.)
+# If the user goes to /contacts, look for /contacts/index.html
+# This prevents the "Forbidden" error and the "Old WordPress" fallback.
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{DOCUMENT_ROOT}/$1/index.html -f
+RewriteRule ^(.*)/?$ $1/index.html [L]
+
+# 3. ALLOW WORDPRESS ROUTES (Skip Next.js logic)
+# Ensure these paths are handed directly to the WordPress engine
+RewriteRule ^(blog|insights|wp-admin|wp-includes|wp-content|wp-login.php|xmlrpc.php) - [L]
+
+# --- END NEXT.JS LOGIC ---
+
+# BEGIN WordPress
+
+# The directives (lines) between "BEGIN WordPress" and "END WordPress" are
+
+# dynamically generated, and should only be modified via WordPress filters.
+
+# Any changes to the directives between these markers will be overwritten.
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+
+# END WordPress
+
+# SGO Unset Vary
+
+Header unset Vary
+
+# SGO Unset Vary END

@@ -1,0 +1,57 @@
+.scroll-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding: 60px 0;
+}
+
+.scroll-track {
+  display: flex;
+  white-space: nowrap;
+  width: max-content;
+  align-items: center;
+}
+
+.scroll-item {
+  display: flex;
+  align-items: center;
+  margin: 0 40px;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.api-icon {
+  width: 40px;
+  height: 40px;
+  margin-right: 15px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+}
+
+.track-1 {
+  animation: scroll 25s linear infinite;
+}
+
+.track-2 {
+  animation: scroll 30s linear infinite reverse;
+  margin-top: 70px;
+}
+
+.track-3 {
+  animation: scroll 35s linear infinite;
+  margin-top: 70px;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}

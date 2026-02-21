@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+:root {
+  --light-gray: #d9d9d9;
+  --primary: #983232;
+  --light-primary: #e35151;
+  --secondary: #0a3253;
+  --background: #0a0a0a;
+  --foreground: #ededed;
+}
+
+@theme inline {
+  --color-light-gray: var(--light-gray);
+  --color-primary: var(--primary);
+  --color-light-primary: var(--light-primary);
+  --color-secondary: var(--secondary);
+  --color-background: var(--background);
+  --font-display: var(--font-gabarito);
+  --font-sans: var(--font-gabarito);
+  --container-8xl: 96rem;
+  --container-9xl: 120rem;
+  --breakpoint-3xl: 120rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background) !important;
+  color: var(--foreground);
+}
+@layer base {
+  h1 {
+    @apply xl:text-[65px] xl:leading-[120%] lg:text-5xl lg:leading-[130%] md:text-4xl md:leading-[55px] text-2xl leading-8 font-medium;
+  }
+
+  h2 {
+    @apply xl:text-6xl lg:text-5xl lg:leading-[120%] md:text-4xl md:leading-[55px] text-2xl leading-8 font-medium  text-white;
+  }
+
+  h3 {
+    @apply text-lg sm:text-xl md:text-xl xl:text-2xl font-bold text-black;
+  }
+
+  h4 {
+    @apply text-base md:text-lg lg:text-2xl font-medium leading-[150%];
+  }
+
+  p {
+    @apply text-base  md:text-lg lg:text-xl font-normal text-white md:leading-normal xl:leading-[150%];
+  }
+}
