@@ -6,7 +6,10 @@
   --light-primary: #e35151;
   --secondary: #0a3253;
   --background: #0a0a0a;
-  --foreground: #ededed;
+  --foreground: #e5e7eb;
+  --font-gabarito: "Inter Variable", Inter, "Segoe UI", Arial, sans-serif;
+  --font-display-face: "Space Grotesk Variable", "Space Grotesk",
+    "Inter Variable", Inter, sans-serif;
 }
 
 @theme inline {
@@ -15,7 +18,7 @@
   --color-light-primary: var(--light-primary);
   --color-secondary: var(--secondary);
   --color-background: var(--background);
-  --font-display: var(--font-gabarito);
+  --font-display: var(--font-display-face);
   --font-sans: var(--font-gabarito);
   --container-8xl: 96rem;
   --container-9xl: 120rem;
@@ -25,21 +28,43 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
-    --foreground: #ededed;
+    --foreground: #e5e7eb;
   }
 }
 
 body {
   background: var(--background) !important;
   color: var(--foreground);
+  overflow-x: hidden;
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+.site-container {
+  width: min(100% - 2rem, 1360px);
+  margin-inline: auto;
+}
+
+@media (min-width: 640px) {
+  .site-container {
+    width: min(100% - 3rem, 1360px);
+  }
+}
+
+@media (min-width: 1024px) {
+  .site-container {
+    width: min(100% - 4rem, 1360px);
+  }
 }
 @layer base {
   h1 {
-    @apply xl:text-[65px] xl:leading-[120%] lg:text-5xl lg:leading-[130%] md:text-4xl md:leading-[55px] text-2xl leading-8 font-medium;
+    @apply xl:text-[68px] xl:leading-[112%] lg:text-5xl lg:leading-[118%] md:text-4xl md:leading-[50px] text-3xl leading-9 font-semibold font-display text-neutral-200;
   }
 
   h2 {
-    @apply xl:text-6xl lg:text-5xl lg:leading-[120%] md:text-4xl md:leading-[55px] text-2xl leading-8 font-medium  text-white;
+    @apply xl:text-6xl lg:text-5xl lg:leading-[112%] md:text-4xl md:leading-[50px] text-3xl leading-9 font-semibold font-display text-neutral-200;
   }
 
   h3 {
@@ -51,6 +76,6 @@ body {
   }
 
   p {
-    @apply text-base  md:text-lg lg:text-xl font-normal text-white md:leading-normal xl:leading-[150%];
+    @apply text-base md:text-lg lg:text-xl font-normal text-neutral-300 md:leading-normal xl:leading-[150%];
   }
 }

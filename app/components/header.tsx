@@ -1,5 +1,5 @@
 "use client";
-import { Menu, X } from "lucide-react";
+import { ArrowUpRight, Menu, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -44,13 +44,13 @@ export default function Header() {
 
   return (
     <header
-      className={`w-full fixed top-0 z-50 transition-transform duration-300`}
+      className={`fixed top-0 z-50 w-full transition-transform duration-300`}
       style={{
         backgroundColor: `rgba(11,11,11,${bgOpacity})`,
-        backdropFilter: bgOpacity > 0 ? "blur(4px)" : "none",
+        backdropFilter: bgOpacity > 0 ? "blur(10px)" : "none",
       }}
     >
-      <div className="w-full max-w-9xl mx-auto px-4 md:px-12 xl:px-28 py-5 flex items-center justify-between">
+      <div className="site-container flex items-center justify-between py-4">
         <div className="flex items-center">
           <Link href={"/"}>
             <Image
@@ -58,7 +58,7 @@ export default function Header() {
               alt="Logo"
               width={287}
               height={73}
-              className="w-56 h-16"
+              className="h-12 w-auto sm:h-14"
             />
           </Link>
         </div>
@@ -68,7 +68,7 @@ export default function Header() {
             <Link
               key={item.href + "link"}
               href={item.href}
-              className={`text-base text-white from-transparent to-transparent hover:from-neutral-500/20 hover:to-neutral-200/10 bg-linear-to-b  px-4 py-2 rounded-full transition-colors duration-300
+              className={`text-base text-neutral-200 from-transparent to-transparent hover:from-neutral-500/20 hover:to-neutral-200/10 bg-linear-to-b  px-4 py-2 rounded-full transition-colors duration-300
                  `}
             >
               {item.name}
@@ -79,8 +79,10 @@ export default function Header() {
           <ContactButton />
 
           <button
-            className="lg:hidden text-white"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-neutral-200/10 text-neutral-200 lg:hidden"
             onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label={mobileOpen ? "Close menu" : "Open menu"}
+            aria-expanded={mobileOpen}
           >
             {mobileOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
@@ -88,12 +90,12 @@ export default function Header() {
       </div>
 
       {mobileOpen && (
-        <div className="lg:hidden bg-secondary px-6 py-6 space-y-4 flex flex-col">
+        <div className="site-container flex flex-col space-y-4 bg-secondary/95 px-5 py-6 lg:hidden">
           {navItems.map((item) => (
             <Link
               key={item.href + "link"}
               href={item.href}
-              className="text-white font-bold hover:text-primary"
+            className="font-bold text-neutral-200 hover:text-light-primary"
               onClick={() => setMobileOpen(false)}
             >
               {item.name}
@@ -102,7 +104,8 @@ export default function Header() {
 
           <Link
             href="/contacts"
-            className="bg-white hover:bg-primary text-secondary hover:text-secondary font-bold px-4 py-2 rounded-[40px] block text-center"
+            className="block rounded-full bg-neutral-200 px-4 py-3 text-center font-bold text-secondary hover:bg-primary hover:text-neutral-200"
+            onClick={() => setMobileOpen(false)}
           >
             Contact Us
           </Link>
@@ -147,7 +150,7 @@ export function ContactButton() {
       onMouseEnter={setPos}
       onMouseMove={setPos}
       style={style}
-      className="group overflow-hidden relative hidden border-0 lg:inline px-10 py-3 bg-white text-primary font-medium rounded-full transition-colors"
+      className="group relative hidden overflow-hidden rounded-full border-0 bg-neutral-200 px-10 py-3 font-medium text-primary transition-colors lg:inline"
     >
       {/* expanding dot */}
       <span
@@ -167,8 +170,9 @@ export function ContactButton() {
         }}
       />
 
-      <span className="z-20 relative group-hover:text-white transition-colors">
+      <span className="relative z-20 transition-colors group-hover:text-neutral-200">
         Contact Us
+        <ArrowUpRight className="ml-2 inline h-4 w-4 align-[-2px]" />
       </span>
     </Link>
   );

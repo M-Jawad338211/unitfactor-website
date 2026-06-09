@@ -36,27 +36,30 @@ const trustSignals = [
 
 export default function Testimonials() {
   return (
-    <section className="relative overflow-hidden px-4 py-14 sm:px-12 lg:px-16 xl:px-28">
-      <div className="absolute inset-0 -z-20 bg-[linear-gradient(180deg,#0A0A0A_0%,#101010_55%,#0A0A0A_100%)]" />
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_20%_80%,rgba(227,81,81,0.16),transparent_42%)]" />
+    <section className="relative py-16 sm:py-20 lg:py-24">
+      <div className="site-container">
+        <div className="grid gap-6 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-end">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-light-primary">
+              Client Notes
+            </p>
+            <motion.h2
+              initial={{ opacity: 0, y: -20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.65, ease: "easeOut" }}
+              className="mt-4 max-w-3xl text-left font-semibold"
+            >
+              What clients value in the{" "}
+              <span className="text-light-primary">process</span>.
+            </motion.h2>
+          </div>
 
-      <div className="mx-auto max-w-6xl">
-        <div className="flex flex-col items-start justify-between gap-4 lg:flex-row lg:items-end">
-          <motion.h2
-            initial={{ opacity: 0, y: -20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.65, ease: "easeOut" }}
-            className="max-w-3xl text-left font-semibold"
-          >
-            What clients value most in our process
-          </motion.h2>
-
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-2 lg:justify-end">
             {trustSignals.map((item) => (
               <span
                 key={item}
-                className="rounded-full border border-white/22 bg-white/8 px-3 py-1 text-xs font-medium text-white/80"
+                className="rounded-full bg-neutral-200/10 px-3 py-1 text-xs font-medium text-neutral-300"
               >
                 {item}
               </span>
@@ -66,10 +69,7 @@ export default function Testimonials() {
 
         <div className="mt-8 grid grid-cols-1 gap-4 lg:grid-cols-3">
           {testimonials.map((item) => (
-            <article
-              key={item.name}
-              className="rounded-3xl border border-white/12 bg-neutral-900/72 p-5 sm:p-6"
-            >
+            <article key={item.name} className="rounded-[34px] bg-zinc-800/70 p-6">
               <div className="flex items-center gap-3">
                 <Image
                   src={item.image}
@@ -79,11 +79,13 @@ export default function Testimonials() {
                   className="h-14 w-14 rounded-full object-cover"
                 />
                 <div>
-                  <h3 className="text-lg font-semibold text-white">{item.name}</h3>
-                  <p className="text-sm text-white/70">{item.role}</p>
+                  <h3 className="text-lg font-semibold text-neutral-200">
+                    {item.name}
+                  </h3>
+                  <p className="text-sm text-neutral-400">{item.role}</p>
                 </div>
               </div>
-              <p className="mt-4 text-sm leading-relaxed text-white/78 sm:text-base">
+              <p className="mt-4 text-sm leading-relaxed text-neutral-300 sm:text-base">
                 &quot;{item.quote}&quot;
               </p>
             </article>

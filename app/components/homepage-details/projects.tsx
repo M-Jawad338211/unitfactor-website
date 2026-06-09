@@ -4,169 +4,160 @@ import { motion } from "framer-motion";
 import {
   ArrowRight,
   Clock3,
+  MessagesSquare,
   Rocket,
   ShieldCheck,
   type LucideIcon,
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import CountUp from "../shared/count-up";
 
-interface CommitmentItem {
+interface FeatureItem {
   title: string;
   detail: string;
   icon: LucideIcon;
 }
 
-const commitmentItems: CommitmentItem[] = [
+const featureItems: FeatureItem[] = [
   {
     title: "Flexible collaboration models",
-    detail: "Fixed monthly scope or iterative sprint delivery, based on your team setup.",
+    detail:
+      "Engage us for a focused launch, a monthly product pod, or milestone-based design and engineering support.",
     icon: Rocket,
   },
   {
+    title: "Transparent communication",
+    detail:
+      "Get clear priorities, visible progress, and direct access to the people shaping and building your product.",
+    icon: MessagesSquare,
+  },
+  {
     title: "Reliable timelines",
-    detail: "Clear milestones, transparent progress updates, and accountability on every phase.",
+    detail:
+      "We plan releases around realistic milestones, ownership, and the decisions needed to keep momentum.",
     icon: Clock3,
   },
   {
-    title: "Quality that scales",
-    detail: "Production-ready code and design patterns that stay maintainable as features grow.",
+    title: "Quality that keeps scaling",
+    detail:
+      "Our design systems and code patterns are built to stay maintainable after the first launch.",
     icon: ShieldCheck,
   },
 ];
 
-const projectMetrics = [
+const agencyStats = [
   { value: "70+", label: "successful projects" },
   { value: "40+", label: "long-term clients" },
   { value: "12", label: "industries served" },
+  { value: "90%", label: "repeat collaboration" },
 ];
 
 export default function Projects() {
   return (
     <section
       id="projects"
-      className="relative overflow-hidden px-4 py-16 sm:px-12 sm:py-20 lg:px-16 lg:py-24 xl:px-28"
+      className="relative py-16 sm:py-20 lg:py-24"
     >
-      <div className="absolute inset-0 -z-30 bg-[linear-gradient(180deg,#0A0A0A_0%,#101010_52%,#0A0A0A_100%)]" />
-      <div className="absolute inset-0 -z-20 bg-[radial-gradient(circle_at_15%_15%,rgba(227,81,81,0.2),transparent_45%)]" />
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_85%_80%,rgba(10,50,83,0.35),transparent_48%)]" />
+      <div className="site-container">
+        <div className="grid gap-8 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:items-end">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-light-primary">
+              Why Unitfactor
+            </p>
+            <motion.h2
+              initial={{ opacity: 0, y: -24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, ease: "easeOut" }}
+              className="mt-4 max-w-3xl font-display font-semibold"
+            >
+              Why teams <span className="text-light-primary">choose</span>{" "}
+              Unitfactor.
+            </motion.h2>
+          </div>
+          <p className="max-w-2xl text-neutral-300 lg:justify-self-end">
+            Teams choose us when they need execution without chaos: product
+            thinking, polished design, dependable engineering, and a process
+            that keeps business goals visible.
+          </p>
+        </div>
 
-      <div className="mx-auto max-w-3xl text-center">
-        <span className="inline-flex rounded-full border border-white/20 bg-white/6 px-4 py-2 text-xs font-semibold tracking-[0.16em] text-white/85 uppercase">
-          Project Delivery
-        </span>
-        <motion.h2
-          initial={{ opacity: 0, y: -24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7, ease: "easeOut" }}
-          className="mt-5 font-semibold"
-        >
-          A delivery process built for <span className="text-light-primary">predictable</span>{" "}
-          outcomes
-        </motion.h2>
-        <p className="mt-5 text-white/85">
-          We combine design clarity with engineering discipline, so projects move
-          fast without compromising reliability.
-        </p>
-      </div>
+        <div className="mt-12 grid gap-4 lg:grid-cols-[0.95fr_1.05fr]">
+          <div className="relative min-h-[460px] overflow-hidden rounded-[36px] bg-zinc-800/70">
+            <Image
+              src="/png/av-lab-3.png"
+              alt="Agency project delivery preview"
+              fill
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 48vw"
+            />
+            <div className="absolute inset-0 bg-linear-to-t from-black/78 via-black/18 to-transparent" />
+            <div className="absolute bottom-6 left-6 right-6 rounded-[28px] bg-black/45 p-5 backdrop-blur-md">
+              <p className="text-xs font-semibold uppercase tracking-[0.12em] text-neutral-400">
+                Delivery focus
+              </p>
+              <p className="mt-2 text-lg font-semibold leading-snug text-neutral-200">
+                One team connecting product decisions, user experience, and
+                production engineering.
+              </p>
+            </div>
+          </div>
 
-      <div className="mx-auto mt-10 grid max-w-6xl gap-4 lg:grid-cols-[1.08fr_0.92fr]">
-        <article className="rounded-3xl border border-white/12 bg-neutral-900/75 p-6 backdrop-blur-sm sm:p-7 lg:p-8">
-          <h3 className="text-2xl font-semibold text-white sm:text-3xl">
-            Why teams choose Unitfactor
-          </h3>
-
-          <div className="mt-6 space-y-3">
-            {commitmentItems.map((item) => {
+          <div className="space-y-4">
+            {featureItems.map((item) => {
               const Icon = item.icon;
 
               return (
-                <div
+                <article
                   key={item.title}
-                  className="rounded-2xl border border-white/12 bg-white/5 p-4 transition-colors duration-300 hover:border-light-primary/40 hover:bg-primary/10"
+                  className="grid gap-4 rounded-[32px] bg-zinc-800/70 p-5 sm:grid-cols-[56px_1fr] sm:p-6"
                 >
-                  <div className="flex items-start gap-3">
-                    <span className="mt-0.5 inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/20 bg-white/8">
-                      <Icon className="h-4 w-4 text-light-primary" />
-                    </span>
-                    <div>
-                      <h4 className="text-base font-semibold text-white sm:text-lg">
-                        {item.title}
-                      </h4>
-                      <p className="mt-1 text-sm font-normal leading-relaxed text-white/75 sm:text-base">
-                        {item.detail}
-                      </p>
-                    </div>
+                  <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/24">
+                    <Icon className="h-6 w-6 text-neutral-200" />
+                  </span>
+                  <div>
+                    <h3 className="text-xl font-semibold text-neutral-200 sm:text-2xl">
+                      {item.title}
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-neutral-300 sm:text-base">
+                      {item.detail}
+                    </p>
                   </div>
-                </div>
+                </article>
               );
             })}
           </div>
+        </div>
 
-          <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-3">
-            {projectMetrics.map((metric) => (
-              <div
-                key={metric.label}
-                className="rounded-2xl border border-white/15 bg-black/35 px-4 py-4 text-center"
-              >
-                <p className="text-2xl font-semibold text-light-primary sm:text-3xl">
-                  {metric.value}
-                </p>
-                <p className="mt-1 text-xs font-medium tracking-[0.06em] text-white/70 uppercase">
-                  {metric.label}
-                </p>
-              </div>
-            ))}
-          </div>
+        <div className="mt-14 grid gap-8 rounded-[36px] bg-zinc-800/55 px-6 py-8 sm:grid-cols-2 lg:grid-cols-4 lg:px-8">
+          {agencyStats.map((stat) => (
+            <div key={stat.label}>
+              <p className="text-4xl font-semibold text-neutral-200 sm:text-5xl">
+                <CountUp value={stat.value} />
+              </p>
+              <p className="mt-2 text-sm font-medium uppercase tracking-[0.1em] text-neutral-400">
+                {stat.label}
+              </p>
+            </div>
+          ))}
+        </div>
 
-          <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-            <Link
-              href="/portfolio"
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-semibold text-primary transition-colors duration-300 hover:bg-primary hover:text-white"
-            >
-              Explore projects
-              <ArrowRight className="h-4 w-4" />
-            </Link>
-            <Link
-              href="/contacts"
-              className="inline-flex items-center justify-center rounded-full border border-white/25 bg-white/5 px-5 py-3 text-sm font-semibold text-white transition-colors duration-300 hover:border-white/40 hover:bg-white/12"
-            >
-              Start a project
-            </Link>
-          </div>
-        </article>
-
-        <aside className="relative overflow-hidden rounded-3xl border border-white/12 bg-neutral-900/70 p-3 sm:p-4">
-          <div className="relative h-[320px] w-full overflow-hidden rounded-2xl sm:h-[390px] lg:h-full lg:min-h-[540px]">
-            <Image
-              src="/png/av-lab-3.png"
-              alt="Project showcase"
-              fill
-              className="object-cover"
-              sizes="(max-width: 1024px) 100vw, 42vw"
-            />
-            <div className="absolute inset-0 bg-linear-to-t from-black/75 via-black/10 to-transparent" />
-          </div>
-
-          <div className="pointer-events-none absolute left-6 top-6 rounded-2xl border border-white/18 bg-black/45 px-4 py-3 backdrop-blur-sm">
-            <p className="text-xs font-semibold tracking-[0.08em] text-white/75 uppercase">
-              Delivery track
-            </p>
-            <p className="mt-1 text-sm font-semibold text-white">
-              Strategy, design, and development in one team
-            </p>
-          </div>
-
-          <div className="pointer-events-none absolute bottom-6 right-6 rounded-2xl border border-light-primary/45 bg-primary/25 px-4 py-3 backdrop-blur-sm">
-            <p className="text-xs font-semibold tracking-[0.08em] text-white/80 uppercase">
-              Current focus
-            </p>
-            <p className="mt-1 text-sm font-semibold text-white">
-              Product modernization and growth loops
-            </p>
-          </div>
-        </aside>
+        <div className="mt-10 flex flex-col gap-3 sm:flex-row">
+          <Link
+            href="/portfolio"
+            className="inline-flex items-center justify-center gap-2 rounded-full bg-neutral-200 px-5 py-3 text-sm font-semibold text-primary transition-colors duration-300 hover:bg-primary hover:text-neutral-200"
+          >
+            Explore projects
+            <ArrowRight className="h-4 w-4" />
+          </Link>
+          <Link
+            href="/contacts"
+            className="inline-flex items-center justify-center rounded-full bg-neutral-200/10 px-5 py-3 text-sm font-semibold text-neutral-200 transition-colors duration-300 hover:bg-neutral-200/[0.18]"
+          >
+            Start a project
+          </Link>
+        </div>
       </div>
     </section>
   );

@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import CountUp from "../shared/count-up";
 
 const focusAreas = [
   "SaaS Platforms",
@@ -21,38 +22,35 @@ const stats = [
 
 export default function Partners() {
   return (
-    <section className="relative overflow-hidden px-4 pb-12 pt-28 sm:px-12 md:pt-36 lg:px-16 lg:pb-16 xl:px-28 xl:pt-40">
-      <div className="absolute inset-0 -z-30 bg-[linear-gradient(180deg,#0A0A0A_0%,#111111_60%,#0A0A0A_100%)]" />
-      <div className="absolute inset-0 -z-20 bg-[radial-gradient(circle_at_20%_18%,rgba(227,81,81,0.2),transparent_44%)]" />
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_82%_80%,rgba(10,50,83,0.35),transparent_46%)]" />
-
-      <div className="mx-auto grid max-w-6xl gap-4 lg:grid-cols-[1.05fr_0.95fr]">
-        <article className="rounded-3xl border border-white/12 bg-neutral-900/75 p-6 backdrop-blur-sm sm:p-8">
-          <span className="inline-flex rounded-full border border-white/20 bg-white/6 px-4 py-2 text-xs font-semibold tracking-[0.14em] text-white/85 uppercase">
+    <section className="relative pb-16 pt-32 md:pt-40 xl:pt-44">
+      <div className="site-container grid gap-6 lg:grid-cols-[minmax(0,1.02fr)_minmax(0,0.98fr)]">
+        <article className="rounded-[40px] bg-zinc-800/70 p-6 backdrop-blur-sm sm:p-8 lg:p-10">
+          <span className="inline-flex rounded-full bg-neutral-200/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-neutral-300">
             Portfolio
           </span>
 
-          <motion.h2
+          <motion.h1
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.65, ease: "easeOut" }}
-            className="mt-5 text-left font-semibold"
+            className="mt-6 max-w-4xl text-neutral-200"
           >
-            Case studies built for <span className="text-light-primary">growth</span>
-            , retention, and product clarity
-          </motion.h2>
+            Product work shaped for{" "}
+            <span className="text-light-primary">clarity</span> and growth.
+          </motion.h1>
 
-          <p className="mt-4 max-w-2xl text-white/80">
+          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-neutral-300">
             We partner with ambitious teams to turn complex requirements into
-            practical, conversion-focused digital products.
+            practical digital products with stronger UX, cleaner implementation,
+            and a clearer path to launch.
           </p>
 
-          <div className="mt-5 flex flex-wrap gap-2">
+          <div className="mt-7 flex flex-wrap gap-2">
             {focusAreas.map((item) => (
               <span
                 key={item}
-                className="rounded-full border border-white/22 bg-white/8 px-3 py-1 text-xs font-medium text-white/85"
+                className="rounded-full bg-neutral-200/10 px-3 py-1 text-xs font-medium text-neutral-300"
               >
                 {item}
               </span>
@@ -63,12 +61,12 @@ export default function Partners() {
             {stats.map((stat) => (
               <div
                 key={stat.label}
-                className="rounded-2xl border border-white/15 bg-black/35 px-4 py-4 text-center"
+                className="rounded-[26px] bg-neutral-950/30 px-4 py-5"
               >
                 <p className="text-2xl font-semibold text-light-primary sm:text-3xl">
-                  {stat.value}
+                  <CountUp value={stat.value} />
                 </p>
-                <p className="mt-1 text-[11px] font-medium tracking-[0.08em] text-white/70 uppercase">
+                <p className="mt-2 text-[11px] font-medium uppercase tracking-[0.08em] text-neutral-400">
                   {stat.label}
                 </p>
               </div>
@@ -78,22 +76,22 @@ export default function Partners() {
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <Link
               href="/contacts"
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-semibold text-white transition-colors duration-300 hover:bg-secondary"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-neutral-200 px-5 py-3 text-sm font-semibold text-primary transition-colors duration-300 hover:bg-primary hover:text-neutral-200"
             >
               Start your project
               <ArrowRight className="h-4 w-4" />
             </Link>
             <Link
               href="/#services"
-              className="inline-flex items-center justify-center rounded-full border border-white/25 bg-white/6 px-5 py-3 text-sm font-semibold text-white transition-colors duration-300 hover:bg-white/12"
+              className="inline-flex items-center justify-center rounded-full bg-neutral-200/10 px-5 py-3 text-sm font-semibold text-neutral-200 transition-colors duration-300 hover:bg-neutral-200/[0.18]"
             >
               Explore services
             </Link>
           </div>
         </article>
 
-        <article className="relative overflow-hidden rounded-3xl border border-white/12 bg-neutral-900/70 p-3 sm:p-4">
-          <div className="relative h-[320px] w-full overflow-hidden rounded-2xl sm:h-[420px] lg:h-full lg:min-h-[520px]">
+        <article className="relative overflow-hidden rounded-[40px] bg-zinc-800/70 p-3 sm:p-4">
+          <div className="relative h-[360px] w-full overflow-hidden rounded-[30px] sm:h-[460px] lg:h-full lg:min-h-[560px]">
             <Image
               src="/png/portfolio-main.png"
               alt="Portfolio preview"
@@ -104,11 +102,11 @@ export default function Partners() {
             <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/18 to-transparent" />
           </div>
 
-          <div className="pointer-events-none absolute bottom-7 left-7 max-w-[280px] rounded-2xl border border-white/18 bg-black/45 px-4 py-3 backdrop-blur-sm">
-            <p className="text-xs font-semibold tracking-[0.08em] text-white/80 uppercase">
+          <div className="pointer-events-none absolute bottom-7 left-7 right-7 max-w-[360px] rounded-[28px] bg-black/45 px-5 py-4 backdrop-blur-sm">
+            <p className="text-xs font-semibold uppercase tracking-[0.08em] text-neutral-400">
               Delivery stack
             </p>
-            <p className="mt-1 text-sm font-semibold text-white">
+            <p className="mt-2 text-base font-semibold leading-snug text-neutral-200">
               Product strategy + UX design + full-stack engineering
             </p>
           </div>

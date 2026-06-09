@@ -1,49 +1,6 @@
 import Link from "next/link";
-import ShowcaseCard, { ShowcaseCardProps } from "./showcase-card";
+import Image from "next/image";
 import FooterSocial from "./social";
-
-const showcaseItems: ShowcaseCardProps[] = [
-  {
-    img: { src: "/svg/clutch-rating.svg", height: 64, width: 80 },
-    text: (
-      <span>
-        50+ reviews <br /> on Clutch
-      </span>
-    ),
-    background: { src: "/svg/clutch-rating-bg.svg", height: 64, width: 80 },
-  },
-  {
-    img: { src: "/svg/webflow.svg", height: 64, width: 80 },
-    text: (
-      <span>
-        Official Webflow <br /> partner
-      </span>
-    ),
-    background: {
-      src: "/svg/webflow-showcase-bg.svg",
-      height: 237,
-      width: 154,
-    },
-  },
-  {
-    img: { src: "/avif/upwork-rating.avif", height: 64, width: 80 },
-    text: (
-      <span>
-        Top rated profile <br /> on Upwork
-      </span>
-    ),
-    background: { src: "/svg/upwork-rating-bg.svg", height: 64, width: 80 },
-  },
-  {
-    img: { src: "/svg/linkedin.svg", height: 64, width: 80 },
-    text: (
-      <span>
-        20k followers <br /> on LinkedIn
-      </span>
-    ),
-    background: { src: "/svg/webflow-showcase-bg.svg", height: 64, width: 80 },
-  },
-];
 
 const pageLinks = [
   { label: "Home", href: "/" },
@@ -53,88 +10,134 @@ const pageLinks = [
 ];
 
 const sectionLinks = [
-  { label: "Solutions", href: "/#solutions" },
-  { label: "Experience", href: "/#experiences" },
   { label: "Services", href: "/#services" },
-  { label: "Projects", href: "/#projects" },
+  { label: "Industries", href: "/#experiences" },
+  { label: "Why Unitfactor", href: "/#projects" },
+  { label: "Case studies", href: "/portfolio" },
+];
+
+const serviceLinks = [
+  { label: "Product strategy", href: "/#services" },
+  { label: "UX/UI design", href: "/#services" },
+  { label: "Web applications", href: "/#services" },
+  { label: "Cloud and DevOps", href: "/#services" },
+];
+
+const highlightItems = [
+  {
+    title: "Official Webflow partner",
+    description: "Recognized delivery support for Webflow builds and handoffs.",
+    src: "/svg/webflow.svg",
+    alt: "Webflow partner",
+  },
+  {
+    title: "Top Rated on Upwork",
+    description: "Marketplace proof from clients who rely on us for execution.",
+    src: "/avif/upwork-rating.avif",
+    alt: "Upwork top rated",
+  },
+  {
+    title: "LinkedIn community",
+    description: "A visible product and technology presence with active reach.",
+    src: "/svg/linkedin.svg",
+    alt: "LinkedIn",
+  },
+  {
+    title: "50+ Clutch reviews",
+    description: "Third-party client feedback across design and development.",
+    src: "/svg/clutch-rating.svg",
+    alt: "Clutch reviews",
+  },
 ];
 
 export default function Footer() {
   return (
-    <footer className="border-t border-white/12 bg-background">
-      <div className="mx-auto max-w-9xl px-4 sm:px-12 lg:px-16 xl:px-28 py-14 sm:py-16">
-        <div className="grid gap-10 lg:grid-cols-[1.25fr_1fr] lg:gap-14">
-          <div>
-            <p className="text-xs font-semibold tracking-[0.14em] text-light-primary uppercase">
-              Reputation
-            </p>
-            <h2 className="mt-2 text-3xl font-semibold leading-tight text-white sm:text-4xl">
-              Trusted across startups and enterprise teams
-            </h2>
-            <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-4">
-              {showcaseItems.map((itm, idx) => (
-                <ShowcaseCard
-                  key={`showcase-card-${idx}`}
-                  img={itm.img}
-                  background={itm.background}
-                  text={itm.text}
-                />
-              ))}
-            </div>
-          </div>
-
-          <div className="grid h-fit grid-cols-1 gap-8 rounded-3xl border border-white/12 bg-neutral-900/70 p-6 sm:grid-cols-2 sm:p-8">
-            <nav aria-label="Page links">
-              <p className="text-xs font-semibold tracking-[0.12em] text-white/70 uppercase">
-                Pages
+    <footer className="bg-[#080808]">
+      <div className="site-container py-14 sm:py-16">
+        <div className="rounded-[40px] bg-zinc-800/70 p-6 sm:p-8 lg:p-10">
+          <div className="grid gap-10 lg:grid-cols-[1.2fr_1.8fr] lg:gap-14">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-light-primary">
+                Unitfactor
               </p>
-              <div className="mt-4 flex flex-col gap-3">
-                {pageLinks.map((link) => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    className="w-fit text-sm font-medium text-white/85 transition-colors duration-300 hover:text-light-primary"
-                  >
-                    {link.label}
-                  </Link>
-                ))}
-              </div>
-            </nav>
-
-            <nav aria-label="Homepage sections">
-              <p className="text-xs font-semibold tracking-[0.12em] text-white/70 uppercase">
-                Homepage
-              </p>
-              <div className="mt-4 flex flex-col gap-3">
-                {sectionLinks.map((link) => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    className="w-fit text-sm font-medium text-white/85 transition-colors duration-300 hover:text-light-primary"
-                  >
-                    {link.label}
-                  </Link>
-                ))}
-              </div>
-            </nav>
-
-            <div className="sm:col-span-2">
-              <p className="max-w-sm text-sm leading-relaxed text-white/75">
-                Building a product and need design plus engineering support? Let
-                us map a focused roadmap for your next release.
+              <h2 className="mt-3 max-w-xl font-display text-3xl font-semibold leading-tight text-neutral-200 sm:text-4xl">
+                Product teams move{" "}
+                <span className="text-light-primary">better</span>.
+              </h2>
+              <p className="mt-4 max-w-md text-sm leading-relaxed text-neutral-300 sm:text-base">
+                We help founders, product teams, and agencies turn complex
+                requirements into launch-ready digital products.
               </p>
               <Link
                 href="/contacts"
-                className="mt-4 inline-flex items-center rounded-full bg-white px-5 py-2 text-sm font-semibold text-primary transition-colors duration-300 hover:bg-primary hover:text-white"
+                className="mt-6 inline-flex items-center rounded-full bg-neutral-200 px-5 py-3 text-sm font-semibold text-primary transition-colors duration-300 hover:bg-primary hover:text-neutral-200"
               >
                 Start a conversation
               </Link>
             </div>
-          </div>
-        </div>
 
-        <FooterSocial />
+            <div className="grid gap-8 sm:grid-cols-3">
+              <FooterNav title="Pages" links={pageLinks} />
+              <FooterNav title="Explore" links={sectionLinks} />
+              <FooterNav title="Services" links={serviceLinks} />
+            </div>
+          </div>
+
+          <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {highlightItems.map((item) => (
+              <article
+                key={item.alt}
+                className="rounded-2xl bg-neutral-200/[0.06] p-4"
+              >
+                <div className="flex h-12 items-center">
+                  <Image
+                    src={item.src}
+                    alt={item.alt}
+                    width={128}
+                    height={48}
+                    className="max-h-11 w-auto object-contain"
+                  />
+                </div>
+                <h4 className="mt-4 text-base font-semibold text-neutral-200">
+                  {item.title}
+                </h4>
+                <p className="mt-2 text-sm leading-relaxed text-neutral-400">
+                  {item.description}
+                </p>
+              </article>
+            ))}
+          </div>
+
+          <FooterSocial />
+        </div>
       </div>
     </footer>
+  );
+}
+
+function FooterNav({
+  title,
+  links,
+}: {
+  title: string;
+  links: { label: string; href: string }[];
+}) {
+  return (
+    <nav aria-label={title}>
+      <p className="text-xs font-semibold uppercase tracking-[0.12em] text-neutral-400">
+        {title}
+      </p>
+      <div className="mt-4 flex flex-col gap-3">
+        {links.map((link) => (
+          <Link
+            key={`${title}-${link.href}-${link.label}`}
+            href={link.href}
+            className="w-fit text-sm font-medium text-neutral-300 transition-colors duration-300 hover:text-light-primary"
+          >
+            {link.label}
+          </Link>
+        ))}
+      </div>
+    </nav>
   );
 }

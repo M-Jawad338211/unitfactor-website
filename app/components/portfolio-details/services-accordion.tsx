@@ -77,33 +77,34 @@ const serviceFocus = [
 
 export default function ServicesAccordion() {
   return (
-    <section className="relative overflow-hidden px-4 py-14 sm:px-12 lg:px-16 xl:px-28">
-      <div className="absolute inset-0 -z-20 bg-[linear-gradient(180deg,#0A0A0A_0%,#101010_58%,#0A0A0A_100%)]" />
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_80%_22%,rgba(227,81,81,0.15),transparent_40%)]" />
-
-      <div className="mx-auto max-w-6xl">
-        <div className="flex flex-col items-start justify-between gap-5 lg:flex-row lg:items-end">
+    <section className="relative py-16 sm:py-20 lg:py-24">
+      <div className="site-container">
+        <div className="grid gap-6 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-end">
           <div className="max-w-3xl">
+            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-light-primary">
+              Selected Work
+            </p>
             <motion.h2
               initial={{ opacity: 0, y: -20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.65, ease: "easeOut" }}
-              className="text-left font-semibold"
+              className="mt-4 text-left font-semibold"
             >
-              Selected work that solved real business problems
+              Work that solves <span className="text-light-primary">real</span>{" "}
+              product problems.
             </motion.h2>
-            <p className="mt-4 text-white/80">
+            <p className="mt-4 max-w-2xl text-neutral-300">
               Each case combines product thinking, UX craft, and technical
-              execution to move measurable metrics.
+              execution for clearer experiences and more dependable delivery.
             </p>
           </div>
 
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-2 lg:justify-end">
             {serviceFocus.map((item) => (
               <span
                 key={item}
-                className="rounded-full border border-white/22 bg-white/8 px-3 py-1 text-xs font-medium text-white/85"
+                className="rounded-full bg-neutral-200/10 px-3 py-1 text-xs font-medium text-neutral-300"
               >
                 {item}
               </span>
@@ -111,32 +112,32 @@ export default function ServicesAccordion() {
           </div>
         </div>
 
-        <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2">
+        <div className="mt-10 grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
           {caseStudies.map((study) => (
             <article
               key={study.id}
-              className="group overflow-hidden rounded-3xl border border-white/12 bg-neutral-900/72 transition-all duration-300 hover:-translate-y-1 hover:border-light-primary/50 hover:shadow-[0_20px_48px_-30px_rgba(227,81,81,0.9)]"
+              className="group overflow-hidden rounded-[34px] bg-zinc-800/70"
             >
               <a href={study.link} target="_blank" rel="noopener noreferrer">
-                <div className="relative h-[220px] w-full overflow-hidden">
+                <div className="relative h-[245px] w-full overflow-hidden">
                   <Image
                     src={study.image}
                     alt={study.title}
                     fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-104"
-                    sizes="(max-width: 1024px) 100vw, 48vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
                   />
                   <div className="absolute inset-0 bg-linear-to-t from-black/65 to-transparent" />
                 </div>
               </a>
 
-              <div className="p-5 sm:p-6">
+              <div className="p-6">
                 <div className="flex items-start justify-between gap-3">
                   <div>
                     <p className="text-xs font-semibold tracking-[0.08em] text-light-primary uppercase">
                       {study.industry}
                     </p>
-                    <h3 className="mt-2 text-2xl font-semibold text-white">
+                    <h3 className="mt-2 text-2xl font-semibold text-neutral-200">
                       {study.title}
                     </h3>
                   </div>
@@ -144,14 +145,14 @@ export default function ServicesAccordion() {
                     href={study.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-1 inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/20 bg-white/8 text-white transition-colors duration-300 hover:border-light-primary hover:text-light-primary"
+                    className="mt-1 inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-neutral-200/10 text-neutral-200 transition-colors duration-300 hover:bg-primary"
                     aria-label={`Open ${study.title}`}
                   >
                     <ArrowUpRight className="h-4 w-4" />
                   </a>
                 </div>
 
-                <p className="mt-3 text-sm font-normal leading-relaxed text-white/75 sm:text-base">
+                <p className="mt-4 text-sm font-normal leading-relaxed text-neutral-300 sm:text-base">
                   {study.outcome}
                 </p>
 
@@ -159,7 +160,7 @@ export default function ServicesAccordion() {
                   {study.stack.map((item) => (
                     <span
                       key={item}
-                      className="rounded-full border border-white/20 bg-black/35 px-3 py-1 text-xs font-medium text-white/80"
+                      className="rounded-full bg-neutral-950/30 px-3 py-1 text-xs font-medium text-neutral-300"
                     >
                       {item}
                     </span>
