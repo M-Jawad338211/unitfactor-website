@@ -25,38 +25,38 @@ interface UnitXFeature {
 
 const unitxFeatures: UnitXFeature[] = [
   {
-    title: "Mandatory Row-Level Security (RLS)",
-    eyebrow: "Tenant Isolation",
+    title: "Bulletproof Tenant Isolation",
+    eyebrow: "Enterprise Security",
     description:
-      "Security is prioritized over convenience. Every tenant-scoped table is protected by PostgreSQL Row-Level Security, ensuring data cannot leak between organizations.",
+      "Security isn't an afterthought—it's woven into the very fabric of UnitX. We prioritize uncompromising security over convenience by enforcing PostgreSQL Row-Level Security (RLS) on every tenant-scoped table. This guarantees that cross-tenant data leaks are strictly impossible, giving your enterprise customers total peace of mind.",
     points: [
-      "Strict data separation at the database layer",
-      "Automated cross-tenant isolation testing",
-      "Secure by default architecture",
+      "Strict data separation enforced at the database kernel level",
+      "Automated cross-tenant isolation testing in CI/CD pipelines",
+      "Secure-by-default architecture that passes compliance audits faster",
     ],
     icon: Lock,
   },
   {
-    title: "High-Performance Stack",
-    eyebrow: "Scalable Architecture",
+    title: "Uncompromising Performance at Scale",
+    eyebrow: "Modern Architecture",
     description:
-      "Built for speed and scale using the industry's best tools. A Next.js App Router frontend seamlessly connects to a robust NestJS backend.",
+      "Say goodbye to legacy monolithic bottlenecks. UnitX is engineered for raw speed and infinite scale, utilizing a Next.js App Router frontend that delivers lightning-fast user experiences, seamlessly connected to a highly robust and heavily structured NestJS backend.",
     points: [
-      "Next.js App Router for optimal frontend delivery",
-      "NestJS backend with structured logging and health checks",
-      "Prisma ORM for typesafe database interactions",
+      "Next.js App Router for optimal SEO and instantaneous page loads",
+      "NestJS backend featuring structured logging and automated health checks",
+      "Prisma ORM for typesafe, predictable, and rapid database interactions",
     ],
     icon: Server,
   },
   {
-    title: "Built-in Role-Based Workflows",
-    eyebrow: "Customizable Permissions",
+    title: "Limitless Customization & Workflows",
+    eyebrow: "Flexible Permissions",
     description:
-      "UnitX handles complex role logic out of the box, allowing you to define fine-grained permissions and workflows for your users.",
+      "Every SaaS has unique operational needs. UnitX handles complex role-based logic out of the box, empowering you to define incredibly fine-grained permissions, custom user roles, and advanced subscription workflows without writing boilerplate authorization code.",
     points: [
-      "Dynamic permission registry and system roles",
-      "Flexible multi-tenant context management",
-      "Ready for custom billing and subscription flows",
+      "Dynamic permission registry accommodating complex business logic",
+      "Flexible multi-tenant context management across all API boundaries",
+      "Architected to seamlessly integrate with advanced custom billing flows",
     ],
     icon: Layers,
   },
@@ -105,7 +105,7 @@ export default function UnitXPage() {
               transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
               className="mt-8 max-w-2xl text-lg sm:text-xl text-neutral-400 leading-relaxed"
             >
-              UnitX is our premier multi-tenant work-management platform. Engineered with mandatory Row-Level Security, a NestJS backend, and Next.js frontend, it is built to scale from MVP to mature enterprise platform.
+              UnitX is the ultimate launchpad for modern SaaS businesses. Designed by UnitFactor to remove the complexity of building multi-tenant architecture, UnitX provides a battle-tested, secure, and infinitely scalable foundation. Focus on building your core product features, while we handle the intricate details of enterprise-grade security, row-level isolation, and robust deployment pipelines. It's not just a boilerplate—it's a complete shift in how fast you can go to market.
             </motion.p>
 
             <motion.div

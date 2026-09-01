@@ -63,7 +63,7 @@ export default function Header() {
           </Link>
         </div>
 
-        <nav className="hidden lg:flex">
+        <nav className="hidden lg:flex items-center">
           {navItems.map((item) => (
             <Link
               key={item.href + "link"}
@@ -74,6 +74,19 @@ export default function Header() {
               {item.name}
             </Link>
           ))}
+          
+          <div className="group relative">
+            <button className="text-base text-neutral-200 from-transparent to-transparent hover:from-neutral-500/20 hover:to-neutral-200/10 bg-linear-to-b px-4 py-2 rounded-full transition-colors duration-300 flex items-center gap-1 cursor-default">
+              Products
+            </button>
+            <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 translate-y-2 group-hover:translate-y-0">
+              <div className="bg-[#0a0a0a]/90 backdrop-blur-md border border-neutral-800 rounded-2xl p-2 w-48 shadow-[0_8px_30px_rgb(0,0,0,0.5)]">
+                <Link href="/unitx" className="block px-4 py-3 rounded-xl hover:bg-neutral-800/80 text-neutral-200 font-medium transition-colors">
+                  UnitX
+                </Link>
+              </div>
+            </div>
+          </div>
         </nav>
         <div className="flex items-center space-x-4">
           <ContactButton />
@@ -101,6 +114,17 @@ export default function Header() {
               {item.name}
             </Link>
           ))}
+
+          <div className="flex flex-col space-y-3 pt-2 pb-2">
+            <span className="text-xs font-semibold uppercase tracking-wider text-neutral-400">Products</span>
+            <Link
+              href="/unitx"
+              className="font-bold text-neutral-200 hover:text-light-primary"
+              onClick={() => setMobileOpen(false)}
+            >
+              UnitX
+            </Link>
+          </div>
 
           <Link
             href="/contacts"

@@ -23,6 +23,10 @@ const serviceLinks = [
   { label: "Cloud and DevOps", href: "/#services" },
 ];
 
+const productLinks = [
+  { label: "UnitX", href: "/unitx" },
+];
+
 const highlightItems = [
   {
     title: "Official Webflow partner",
@@ -76,10 +80,11 @@ export default function Footer() {
               </Link>
             </div>
 
-            <div className="grid gap-8 sm:grid-cols-3">
+            <div className="grid gap-8 grid-cols-2 sm:grid-cols-4">
               <FooterNav title="Pages" links={pageLinks} />
               <FooterNav title="Explore" links={sectionLinks} />
               <FooterNav title="Services" links={serviceLinks} />
+              <FooterNav title="Products" links={productLinks} />
             </div>
           </div>
 
