@@ -200,6 +200,61 @@ export default function UnitXPage() {
         </div>
       </section>
 
+      {/* Dev Experience Section */}
+      <section className="relative py-16 sm:py-24 bg-neutral-900/20 border-y border-neutral-800/50 mt-12">
+        <div className="site-container">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <motion.p 
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-xs font-semibold uppercase tracking-[0.16em] text-light-primary mb-4"
+            >
+              Developer Experience
+            </motion.p>
+            <motion.h2 
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="text-3xl sm:text-4xl lg:text-5xl font-display font-semibold text-neutral-200"
+            >
+              Stop rebuilding the basics.
+            </motion.h2>
+            <motion.p 
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="mt-6 text-lg text-neutral-400"
+            >
+              UnitX provides out-of-the-box infrastructure so your team can focus on the business logic that actually differentiates your product in the market.
+            </motion.p>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
+            {[
+              { title: "Pre-configured CI/CD", desc: "Automated GitHub Actions pipelines for continuous testing, linting, and seamless deployments.", icon: Code2 },
+              { title: "Managed Migrations", desc: "Prisma handles schema evolution gracefully with declarative modeling and built-in rollbacks.", icon: Database },
+              { title: "Deep Observability", desc: "Structured logging and automated health checks ensure you always know what's happening in production.", icon: Server },
+            ].map((item, i) => (
+              <motion.div 
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 * i }}
+                className="bg-zinc-800/30 p-8 rounded-3xl border border-neutral-800/50 hover:border-light-primary/30 transition-all duration-300"
+              >
+                <item.icon className="w-10 h-10 text-light-primary mb-6" />
+                <h3 className="text-xl font-semibold text-neutral-200 mb-3">{item.title}</h3>
+                <p className="text-neutral-400 leading-relaxed">{item.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Final CTA */}
       <section className="relative py-24 lg:py-32">
         <div className="site-container relative isolate">
