@@ -1,0 +1,226 @@
+"use client";
+
+import { motion } from "framer-motion";
+import {
+  ArrowRight,
+  Database,
+  Lock,
+  Layers,
+  Server,
+  Code2,
+  Check,
+  type LucideIcon,
+} from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import Head from "next/head";
+
+interface UnitXFeature {
+  title: string;
+  eyebrow: string;
+  description: string;
+  points: string[];
+  icon: LucideIcon;
+}
+
+const unitxFeatures: UnitXFeature[] = [
+  {
+    title: "Mandatory Row-Level Security (RLS)",
+    eyebrow: "Tenant Isolation",
+    description:
+      "Security is prioritized over convenience. Every tenant-scoped table is protected by PostgreSQL Row-Level Security, ensuring data cannot leak between organizations.",
+    points: [
+      "Strict data separation at the database layer",
+      "Automated cross-tenant isolation testing",
+      "Secure by default architecture",
+    ],
+    icon: Lock,
+  },
+  {
+    title: "High-Performance Stack",
+    eyebrow: "Scalable Architecture",
+    description:
+      "Built for speed and scale using the industry's best tools. A Next.js App Router frontend seamlessly connects to a robust NestJS backend.",
+    points: [
+      "Next.js App Router for optimal frontend delivery",
+      "NestJS backend with structured logging and health checks",
+      "Prisma ORM for typesafe database interactions",
+    ],
+    icon: Server,
+  },
+  {
+    title: "Built-in Role-Based Workflows",
+    eyebrow: "Customizable Permissions",
+    description:
+      "UnitX handles complex role logic out of the box, allowing you to define fine-grained permissions and workflows for your users.",
+    points: [
+      "Dynamic permission registry and system roles",
+      "Flexible multi-tenant context management",
+      "Ready for custom billing and subscription flows",
+    ],
+    icon: Layers,
+  },
+];
+
+export default function UnitXPage() {
+  return (
+    <main className="overflow-x-clip bg-background min-h-screen">
+      <title>UnitX | Multi-Tenant Work-Management Platform</title>
+      
+      {/* Background Gradients */}
+      <div className="relative isolate">
+        <div className="pointer-events-none absolute inset-x-[-18%] top-[-10rem] -z-10 h-[42rem] bg-[radial-gradient(circle_at_78%_20%,rgba(227,81,81,0.20),transparent_58%)] blur-3xl" />
+        <div className="pointer-events-none absolute inset-x-[-18%] top-[26rem] -z-10 h-[54rem] bg-[radial-gradient(circle_at_18%_50%,rgba(10,50,83,0.38),transparent_58%)] blur-3xl" />
+      </div>
+
+      {/* Hero Section */}
+      <section className="relative pt-32 pb-16 sm:pt-40 sm:pb-24 lg:pb-32 overflow-hidden">
+        <div className="site-container">
+          <div className="flex flex-col items-center text-center">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+              className="inline-flex items-center gap-2 rounded-full border border-neutral-700 bg-neutral-800/50 px-4 py-2 text-sm text-neutral-300"
+            >
+              <Code2 className="h-4 w-4 text-light-primary" />
+              <span>UnitFactor Internal Product</span>
+            </motion.div>
+
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
+              className="mt-8 max-w-5xl text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-semibold text-neutral-200 tracking-tight"
+            >
+              The Foundation for <br />
+              <span className="text-transparent bg-clip-text bg-linear-to-r from-light-primary to-primary">
+                Multi-Tenant SaaS
+              </span>
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+              className="mt-8 max-w-2xl text-lg sm:text-xl text-neutral-400 leading-relaxed"
+            >
+              UnitX is our premier multi-tenant work-management platform. Engineered with mandatory Row-Level Security, a NestJS backend, and Next.js frontend, it is built to scale from MVP to mature enterprise platform.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
+              className="mt-10 flex flex-col sm:flex-row items-center gap-4"
+            >
+              <Link
+                href="/contacts"
+                className="inline-flex h-12 md:h-14 items-center justify-center gap-2 rounded-full bg-light-primary px-8 text-sm md:text-base font-semibold text-white transition-all duration-300 hover:bg-primary shadow-[0_0_20px_rgba(227,81,81,0.4)]"
+              >
+                Request Access
+                <ArrowRight className="h-4 w-4 md:h-5 md:w-5" />
+              </Link>
+              <Link
+                href="#features"
+                className="inline-flex h-12 md:h-14 items-center justify-center gap-2 rounded-full border border-neutral-700 bg-transparent px-8 text-sm md:text-base font-semibold text-neutral-300 transition-colors duration-300 hover:bg-neutral-800"
+              >
+                Explore Architecture
+              </Link>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section id="features" className="relative py-16 sm:py-24">
+        <div className="site-container">
+          <div className="grid gap-6 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-end">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-light-primary">
+                Core Architecture
+              </p>
+              <motion.h2
+                initial={{ opacity: 0, y: -24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.7, ease: "easeOut" }}
+                className="mt-4 max-w-3xl font-display font-semibold text-4xl sm:text-5xl lg:text-6xl text-neutral-200"
+              >
+                Built for <span className="text-light-primary">scale</span> and security.
+              </motion.h2>
+            </div>
+            <p className="max-w-2xl text-neutral-300 lg:justify-self-end text-lg">
+              We prioritize robust foundations. Every decision in UnitX, from the database ORM to the event queue, is optimized for reliable, multi-tenant software development.
+            </p>
+          </div>
+
+          <div className="mt-16 space-y-6">
+            {unitxFeatures.map((feature, index) => {
+              const Icon = feature.icon;
+              return (
+                <article
+                  key={feature.eyebrow}
+                  className="grid overflow-hidden rounded-[36px] bg-zinc-800/40 border border-neutral-800/50 shadow-xl transition-all hover:bg-zinc-800/60 lg:grid-cols-[1fr_2fr]"
+                >
+                  <div className="bg-neutral-900/50 p-8 sm:p-10 flex flex-col justify-center border-b lg:border-b-0 lg:border-r border-neutral-800/50">
+                    <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/20 text-light-primary shadow-[0_0_15px_rgba(227,81,81,0.2)]">
+                      <Icon className="h-7 w-7" />
+                    </div>
+                    <p className="mt-8 text-xs font-semibold uppercase tracking-[0.14em] text-light-primary">
+                      {feature.eyebrow}
+                    </p>
+                    <h3 className="mt-3 text-2xl font-semibold leading-tight text-neutral-200">
+                      {feature.title}
+                    </h3>
+                  </div>
+
+                  <div className="p-8 sm:p-10 flex flex-col justify-center">
+                    <p className="text-base sm:text-lg leading-relaxed text-neutral-300">
+                      {feature.description}
+                    </p>
+
+                    <div className="mt-8 grid sm:grid-cols-2 gap-4">
+                      {feature.points.map((point) => (
+                        <div key={point} className="flex items-start gap-3 bg-neutral-900/30 p-4 rounded-xl border border-neutral-800/30">
+                          <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-light-primary/20 text-light-primary">
+                            <Check className="h-3.5 w-3.5" />
+                          </span>
+                          <p className="text-sm leading-relaxed text-neutral-300">
+                            {point}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Final CTA */}
+      <section className="relative py-24 lg:py-32">
+        <div className="site-container relative isolate">
+          <div className="absolute inset-0 -z-10 rounded-[3rem] bg-gradient-to-b from-neutral-800/40 to-neutral-900/20 border border-neutral-800" />
+          <div className="px-6 py-16 sm:py-24 text-center flex flex-col items-center">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-semibold text-neutral-200 mb-6">
+              Ready to build on UnitX?
+            </h2>
+            <p className="max-w-xl text-neutral-400 mb-10 text-lg">
+              Partner with UnitFactor to launch your SaaS faster, without compromising on security or scalability.
+            </p>
+            <Link
+              href="/contacts"
+              className="inline-flex h-14 items-center justify-center gap-2 rounded-full bg-neutral-200 px-10 text-base font-semibold text-primary transition-colors duration-300 hover:bg-primary hover:text-neutral-200"
+            >
+              Start the Conversation
+              <ArrowRight className="h-5 w-5" />
+            </Link>
+          </div>
+        </div>
+      </section>
+    </main>
+  );
+}
