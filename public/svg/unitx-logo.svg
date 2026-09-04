@@ -1,0 +1,17 @@
+<svg width="220" height="56" viewBox="0 0 220 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="ux-logo-a" x1="10" y1="10" x2="46" y2="46" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#e35151"/>
+      <stop offset="1" stop-color="#983232"/>
+    </linearGradient>
+  </defs>
+  <rect x="4" y="4" width="48" height="48" rx="13" fill="#141416" stroke="#ffffff" stroke-opacity="0.1"/>
+  <rect x="15" y="15" width="8" height="8" rx="2.5" fill="url(#ux-logo-a)"/>
+  <rect x="33" y="33" width="8" height="8" rx="2.5" fill="url(#ux-logo-a)"/>
+  <rect x="33" y="15" width="8" height="8" rx="2.5" fill="#e5e7eb" fill-opacity="0.85"/>
+  <rect x="15" y="33" width="8" height="8" rx="2.5" fill="#e5e7eb" fill-opacity="0.85"/>
+  <path d="M23 23L33 33" stroke="url(#ux-logo-a)" stroke-width="3" stroke-linecap="round"/>
+  <path d="M33 23L23 33" stroke="#ffffff" stroke-opacity="0.32" stroke-width="3" stroke-linecap="round"/>
+  <text x="66" y="37" font-family="'Space Grotesk', Inter, sans-serif" font-size="27" font-weight="600" fill="#e5e7eb" letter-spacing="-0.5">Unit</text>
+  <text x="123" y="37" font-family="'Space Grotesk', Inter, sans-serif" font-size="27" font-weight="600" fill="#e35151" letter-spacing="-0.5">X</text>
+</svg>

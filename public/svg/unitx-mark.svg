@@ -1,0 +1,24 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="ux-mark-bg" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1c1c20"/>
+      <stop offset="1" stop-color="#0d0d0f"/>
+    </linearGradient>
+    <linearGradient id="ux-mark-a" x1="14" y1="14" x2="50" y2="50" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#e35151"/>
+      <stop offset="1" stop-color="#983232"/>
+    </linearGradient>
+    <linearGradient id="ux-mark-b" x1="50" y1="14" x2="14" y2="50" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#e5e7eb"/>
+      <stop offset="1" stop-color="#8b8f98"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="16" fill="url(#ux-mark-bg)"/>
+  <rect x="0.75" y="0.75" width="62.5" height="62.5" rx="15.25" stroke="#ffffff" stroke-opacity="0.1" stroke-width="1.5"/>
+  <rect x="14" y="14" width="10" height="10" rx="3" fill="url(#ux-mark-a)"/>
+  <rect x="40" y="40" width="10" height="10" rx="3" fill="url(#ux-mark-a)"/>
+  <rect x="40" y="14" width="10" height="10" rx="3" fill="url(#ux-mark-b)" fill-opacity="0.85"/>
+  <rect x="14" y="40" width="10" height="10" rx="3" fill="url(#ux-mark-b)" fill-opacity="0.85"/>
+  <path d="M24 24L40 40" stroke="url(#ux-mark-a)" stroke-width="3.5" stroke-linecap="round"/>
+  <path d="M40 24L24 40" stroke="#ffffff" stroke-opacity="0.32" stroke-width="3.5" stroke-linecap="round"/>
+</svg>
