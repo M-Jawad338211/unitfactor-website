@@ -60,7 +60,7 @@ export default function UnitXSubnav() {
           ))}
 
           <Link
-            href="/contacts"
+            href="https://unitx.unitfactor.org/register"
             className="ml-auto inline-flex items-center gap-1.5 rounded-full bg-light-primary px-4 py-2 text-[13px] font-semibold text-white transition-colors hover:bg-primary"
           >
             Start free
