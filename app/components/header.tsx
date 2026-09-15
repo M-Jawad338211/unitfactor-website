@@ -81,7 +81,7 @@ export default function Header() {
             </button>
             <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 translate-y-2 group-hover:translate-y-0">
               <div className="bg-[#0a0a0a]/90 backdrop-blur-md border border-neutral-800 rounded-2xl p-2 w-48 shadow-[0_8px_30px_rgb(0,0,0,0.5)]">
-                <Link href="/unitx" className="block px-4 py-3 rounded-xl hover:bg-neutral-800/80 text-neutral-200 font-medium transition-colors">
+                <Link href="https://unitx.unitfactor.org" className="block px-4 py-3 rounded-xl hover:bg-neutral-800/80 text-neutral-200 font-medium transition-colors">
                   UnitX
                 </Link>
               </div>
@@ -118,7 +118,7 @@ export default function Header() {
           <div className="flex flex-col space-y-3 pt-2 pb-2">
             <span className="text-xs font-semibold uppercase tracking-wider text-neutral-400">Products</span>
             <Link
-              href="/unitx"
+              href="https://unitx.unitfactor.org"
               className="font-bold text-neutral-200 hover:text-light-primary"
               onClick={() => setMobileOpen(false)}
             >

@@ -24,7 +24,7 @@ const serviceLinks = [
 ];
 
 const productLinks = [
-  { label: "UnitX", href: "/unitx" },
+  { label: "UnitX", href: "https://unitx.unitfactor.org" },
 ];
 
 const highlightItems = [
